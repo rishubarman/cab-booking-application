@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #172033;
+  background: #f4f6fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --yellow: #ffd629;
+  --ink: #111827;
+  --muted: #687386;
+  --line: #e6e9ef;
+  --panel: #fff;
+  --green: #16a36a
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f4f6fa
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--yellow);
+  color: #161616;
+  font-weight: 700;
+  padding: 11px 16px;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px #1b243014
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #dfe4ec;
+  border-radius: 9px;
+  padding: 11px 12px;
+  background: #fff;
+  color: #172033;
+  outline: none
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #d4ad00;
+  box-shadow: 0 0 0 3px #ffd62935
+}
+
+.cab-app {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  max-width: none !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 0
+}
+
+.cab-app.is-guest {
+  display: block;
+  max-width: 480px !important;
+  padding: 32px 18px !important;
+  margin: 0 auto !important
+}
+
+.cab-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid var(--line);
+  padding: 25px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 5
+}
+
+.cab-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #111827;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  padding: 0 7px
+}
+
+.cab-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--yellow);
+  font-size: 20px
+}
+
+.cab-brand small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  color: #8790a0;
+  font-weight: 700;
+  margin-top: 3px
+}
+
+.cab-nav-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  color: #9aa2b1;
+  padding: 0 10px;
+  margin-bottom: -16px
+}
+
+.cab-nav {
+  display: grid;
+  gap: 7px
+}
+
+.cab-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 13px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700
+}
+
+.cab-nav a:hover {
+  background: #fff9d9;
+  color: #222
+}
+
+.cab-nav a.active {
+  background: var(--yellow);
+  color: #171717;
+  box-shadow: 0 4px 10px #e8bd1e30
+}
+
+.cab-nav-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 17px
+}
+
+.cab-sidebar-footer {
+  margin-top: auto;
+  padding: 12px 9px;
+  font-size: 11px;
+  color: #7c8797;
+  border-top: 1px solid var(--line)
+}
+
+.cab-online-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-right: 7px
+}
+
+.cab-content {
+  min-width: 0;
+  padding: 28px clamp(18px, 3vw, 42px);
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto
+}
+
+.cab-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap
+}
+
+.cab-topbar h1 {
+  font: 800 24px Manrope, sans-serif;
+  margin: 0 0 4px;
+  color: #141b2a;
+  letter-spacing: -.7px
+}
+
+.cab-topbar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px
+}
+
+.cab-account-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 12px;
+  max-width: 100%
+}
+
+.cab-avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8edff;
+  color: #3949ab;
+  font-weight: 800
+}
+
+.cab-account-chip strong,
+.cab-account-chip small {
+  display: block;
+  overflow-wrap: anywhere
+}
+
+.cab-account-chip strong {
+  font-size: 12px
+}
+
+.cab-account-chip small {
+  font-size: 10px;
+  color: #778196;
+  margin-top: 2px
+}
+
+.cab-content section {
+  scroll-margin-top: 20px
+}
+
+.cab-content section[style*="background: white"],
+.cab-content form[style*="background: white"] {
+  background: #fff !important;
+  border: 1px solid var(--line);
+  border-radius: 16px !important;
+  box-shadow: 0 5px 22px #202d4008
+}
+
+.cab-content h2 {
+  font: 800 20px Manrope, sans-serif;
+  color: #171e2d;
+  letter-spacing: -.45px
+}
+
+.cab-content h3 {
+  font: 700 15px Manrope, sans-serif;
+  color: #202a3b
+}
+
+.cab-content p {
+  line-height: 1.55
+}
+
+.cab-content table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%
+}
+
+.cab-content thead tr {
+  background: #f5f6f9 !important
+}
+
+.cab-content th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .45px;
+  color: #737e90;
+  background: #f5f6f9;
+  white-space: nowrap
+}
+
+.cab-content td {
+  font-size: 13px;
+  border-bottom: 1px solid #edf0f4
+}
+
+.cab-content tbody tr:hover {
+  background: #fffdf0
+}
+
+.cab-content td,
+.cab-content th {
+  padding: 13px 12px !important
+}
+
+.cab-content article {
+  border-color: #e8ebf1 !important;
+  border-radius: 13px !important;
+  box-shadow: 0 2px 8px #1b243008
+}
+
+.cab-content label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #596579
+}
+
+.cab-content [role="status"] {
+  border: 1px solid #dbeafe;
+  background: #eff6ff !important;
+  color: #1d4ed8
+}
+
+.cab-content .leaflet-container {
+  border-radius: 12px
+}
+
+.cab-content button+button {
+  margin-left: 6px
+}
+
+.cab-content button[style*="background: white"] {
+  border: 1px solid var(--line)
+}
+
+/* Improve the ride map and booking metrics without changing existing API behavior. */
+.cab-content .leaflet-container {
+  min-height: 320px
+}
+
+.cab-content section:has(.leaflet-container) {
+  overflow: hidden
+}
+
+.cab-content section:has(.leaflet-container)>div[style*="height: 480px"] {
+  border-radius: 14px !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 8px 22px #1b24300c
+}
+
+.cab-content button:focus-visible,
+.cab-nav a:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px
+}
+
+@media(max-width:900px) {
+  .cab-app {
+    grid-template-columns: 76px minmax(0, 1fr)
+  }
+
+  .cab-sidebar {
+    padding: 20px 9px;
+    align-items: center
+  }
+
+  .cab-brand {
+    padding: 0
+  }
+
+  .cab-brand>span:last-child,
+  .cab-nav-label,
+  .cab-sidebar-footer {
+    display: none
+  }
+
+  .cab-nav {
+    width: 100%
+  }
+
+  .cab-nav a {
+    justify-content: center;
+    padding: 12px 6px;
+    font-size: 0
+  }
+
+  .cab-nav-icon {
+    font-size: 18px
+  }
+
+  .cab-content {
+    padding: 22px 16px
+  }
+}
+
+@media(max-width:600px) {
+  .cab-app {
+    display: block
+  }
+
+  .cab-sidebar {
+    position: sticky;
+    top: 0;
+    height: auto;
+    width: 100%;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 0;
+    border-bottom: 1px solid var(--line)
+  }
+
+  .cab-brand>span:last-child {
+    display: block
+  }
+
+  .cab-brand small {
+    display: none
+  }
+
+  .cab-nav-label,
+  .cab-sidebar-footer {
+    display: none
+  }
+
+  .cab-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    overflow-x: auto
+  }
+
+  .cab-nav a {
+    font-size: 0;
+    padding: 9px
+  }
+
+  .cab-nav-icon {
+    font-size: 17px
+  }
+
+  .cab-content {
+    padding: 16px 12px
+  }
+
+  .cab-topbar h1 {
+    font-size: 21px
+  }
+
+  .cab-account-chip {
+    width: 100%
+  }
+
+  .cab-content section[style*="display: flex"] {
+    gap: 8px !important
+  }
+
+  .cab-content table {
+    min-width: 650px
+  }
+
+  .cab-content article {
+    padding: 13px !important
+  }
+}
+
+
+/* Driver dashboard summary cards */
+.cab-driver-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0 8px
+}
+
+.cab-driver-stat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 6px;
+  padding: 17px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 3px 12px #202d4008;
+  min-width: 0
+}
+
+.cab-driver-stat-icon {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #fff6c9;
+  font-size: 19px
+}
+
+.cab-driver-stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere
+}
+
+.cab-driver-stat strong {
+  font: 800 22px Manrope, sans-serif;
+  color: var(--ink);
+  overflow-wrap: anywhere
+}
+
+@media(max-width:900px) {
+  .cab-driver-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media(max-width:480px) {
+  .cab-driver-stats {
+    grid-template-columns: 1fr
+  }
+
+  .cab-driver-stat {
+    padding: 14px
+  }
+}
