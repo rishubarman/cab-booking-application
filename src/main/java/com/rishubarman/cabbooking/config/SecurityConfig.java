@@ -59,7 +59,9 @@ public class SecurityConfig {
         ));
 
         configuration.setAllowedHeaders(List.of(
-                "Authorization", "Content-Type", "Accept"
+                "Authorization",
+                "Content-Type",
+                "Accept"
         ));
 
         configuration.setAllowCredentials(false);
@@ -82,6 +84,18 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
+                        )
+                )
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint((request, response, exception) ->
+                                response.sendError(
+                                        jakarta.servlet.http.HttpServletResponse.SC_UNAUTHORIZED
+                                )
+                        )
+                        .accessDeniedHandler((request, response, exception) ->
+                                response.sendError(
+                                        jakarta.servlet.http.HttpServletResponse.SC_FORBIDDEN
+                                )
                         )
                 )
                 .authorizeHttpRequests(auth -> auth
